@@ -15,6 +15,11 @@ def generate_mail():
     
     return username
 
+def checkMail(mail=''):
+    req_link = f'{API}?action=getMessages&login={mail.split("@")[0]}&domain={mail.split("@")[1]}'
+    r = requests.get(req_link).json()
+    return r
+
 def check_mail(mail=''):
     req_link = f'{API}?action=getMessages&login={mail.split("@")[0]}&domain={mail.split("@")[1]}'
     r = requests.get(req_link).json()
@@ -63,6 +68,18 @@ def delete_mail(mail):
     
     r = requests.post(url, data=data)
     print(f'[INFO] Email address {mail} has been deleted!\n')
+
+
+def deleteMail(mail):
+    url = 'https://www.1secmail.com/mailbox'
+    
+    data = {
+        'action': 'deleteMailbox',
+        'login': mail.split('@')[0],
+        'domain': mail.split('@')[1]
+    }
+    
+    r = requests.post(url, data=data)
 
 def main():
     try:
