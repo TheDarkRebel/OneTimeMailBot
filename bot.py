@@ -5,7 +5,7 @@ from main import generate_mail, checkMail, deleteMail, domain
 from telebot import types
 
 API = 'https://www.1secmail.com/api/v1/'
-bot = telebot.TeleBot('6582559716:AAHTdynlvQ7HnZcJozpGkKQ6SP4d29YEL54')
+bot = telebot.TeleBot('token')
 
 generated_mail = ''
 
